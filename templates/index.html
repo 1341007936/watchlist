@@ -1,21 +1,26 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ dengkw }}'s Watchlist</title>
+    <title>{{ name }}'s Watchlist</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
 </head>
 <body>
-    <h2>{{ name }}'s Watchlist</h2>
-    {#  length->  #}
+    <h2>
+        <img alt="Dinosaur" class="dinosaur" src="{{ url_for('static', filename='images/dinosaur.jpg') }}">
+        {{ name }}'s Watchlist
+    </h2>
+
     <p>{{  movies|length  }} Titles</p>
-    <ul>
-        {% for movie in movies %}  {# die dai movise bianliang #}
-        <li>{{  movie.title }}----{{  movie.year }}</li>  {# dengtongyu movie['title'] #}
-        {% endfor %}  {# shiyong endfor  jieshu for #}
+    <ul class="movie-list">
+        {% for movie in movies %} {# 迭代 movies 变量 #}
+        <li>{{  movie.title }}----{{  movie.year }}</li>  {# 等同于movie['title'] #}
+        {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
     </ul>
+    <img alt="Rabbit" class="rabbit" src="{{ url_for('static', filename='images/rabbit.gif') }}">
     <footer>
-        </small>&copy; 2018 <a href="http://helloflask.com/tutrial">HelloFlask</a></small>
-    </footer>
+        <small> &copy; 2018 <a href="http://helloflask.com/tutrial">HelloFlask</a></small>
+        </footer>
 </body>
 </html>
